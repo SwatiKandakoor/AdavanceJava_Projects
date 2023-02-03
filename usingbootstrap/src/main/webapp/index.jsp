@@ -15,7 +15,8 @@
     <a class="navbar-brand" href="#">
       <img src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"  width="70" height="40" class="d-inline-block align-text-top">
     </a>
-    <a href="food.jsp">Food Items</a>
+    <a href="food.jsp" style="">Food Items</a><
+    <a href="interview.jsp">Interview </a>
    
   </div>
 </nav>
