@@ -22,14 +22,12 @@
 			<a class="navbar-brand" href="#"> <img
 				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
 				width="70" height="40" class="d-inline-block align-text-top">
-			</a> <a href="Movies.jsp">Movie</a>
-						 <a href="CM.jsp">CM</a>
-			
-
-
 		</div>
+		  <a href="valentine">Valentine</a>
+		
 	</nav>
-	<h1>Spring with boot strap....</h1>
+	
+	<h1>Welcome to Valentine..</h1>
 
 </body>
 </html>

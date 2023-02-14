@@ -10,7 +10,7 @@ import com.xworkz.movies.dto.MoviesDto;
 import com.xworkz.movies.service.MoviesService;
 
 @Controller
-@RequestMapping("/movie")
+@RequestMapping("/")
 public class MoviesController {
 	@Autowired
 	private MoviesService moviesService;
@@ -19,7 +19,7 @@ public class MoviesController {
 		System.out.println("create " + this.getClass().getSimpleName());
 	}
 
-	@PostMapping()
+	@PostMapping("/saveMovie")
 	public String onMovies(MoviesDto moviesDto, Model model) {
 		System.out.println("running post on movies...");
 		System.out.println("Movies dto :"+moviesDto);
@@ -28,4 +28,5 @@ public class MoviesController {
 		System.out.println("saved :"+saved);
 		return "Movies.jsp";
 	}
+		
 }

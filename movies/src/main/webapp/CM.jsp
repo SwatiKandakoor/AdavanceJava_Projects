@@ -22,14 +22,45 @@
 			<a class="navbar-brand" href="#"> <img
 				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
 				width="70" height="40" class="d-inline-block align-text-top">
-			</a> <a href="Movies.jsp">Movie</a>
-						 <a href="CM.jsp">CM</a>
-			
+			</a> <a href="index.jsp">Home</a>
 
 
 		</div>
 	</nav>
-	<h1>Spring with boot strap....</h1>
-
+	<h1>Welcome to cm Info</h1>
+	<form action="cm" method="post">
+		<pre>
+	CM name <input type="text" name="name" />
+	Party <select name="party">
+	<option>Select</option>
+	<option>BJP</option>
+	<option>Congress</option>
+	<option>JDS</option>
+	<option>AAP</option>
+	<option>KJP</option>
+	</select> 
+	
+	State <select name="state">
+	<option>Select</option>
+	<option>KR</option>
+	<option>UP</option>
+	<option>TS</option>
+	<option>AP</option>
+	</select> 
+	
+	TEnure <select name="tenure">
+	<option>Select</option>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	</select>
+	
+	PortFolio<textarea rows="4" cols="60" name="portfolio"></textarea>
+	
+	<input type="submit" value="save" class="btn btn-primary" />
+	</pre>
+	</form>
 </body>
 </html>

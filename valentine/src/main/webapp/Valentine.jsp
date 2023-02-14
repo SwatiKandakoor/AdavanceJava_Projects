@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,14 +24,30 @@
 			<a class="navbar-brand" href="#"> <img
 				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
 				width="70" height="40" class="d-inline-block align-text-top">
-			</a> <a href="Movies.jsp">Movie</a>
-						 <a href="CM.jsp">CM</a>
-			
-
-
 		</div>
+		<a href="index.jsp">Home</a>
 	</nav>
-	<h1>Spring with boot strap....</h1>
-
+	<h1>Welcome to Valentine data saving....</h1>
+	
+	
+	<form action="valentine" method="post">
+	<pre>
+	Name <input type="text" name="name" /> <br>
+	Valentine Name <input type="text" name="valentineName"><br>
+	 Meeting Place <select name="place">
+		<option value="">SELECT</option>
+		<c:forEach items="${places}" var="p">
+			<option value="${p}">${p}</option>
+		</c:forEach>
+	</select> <br>
+	Gift <select name="gift">
+		<option value="">SELECT</option>
+		<c:forEach items="${gifts}" var="g">
+			<option value="${g}">${g}</option>
+		</c:forEach>
+	</select><br>
+	<input type="submit" name="send" />
+	</pre>
+	</form>
 </body>
 </html>
