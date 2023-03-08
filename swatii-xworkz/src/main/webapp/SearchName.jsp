@@ -20,9 +20,9 @@
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				src="https://seeklogo.com/images/M/medical-hospital-logo-463FA27180-seeklogo.com.png"
 				" width="80" height="48" class="d-inline-block align text-top">
-			</a> <a href="hosp">register</a> <a href="index.jsp">Home</a>
+			</a> <a href="hosp">Register</a> <a href="index.jsp">Home</a>
 		</div>
 	</nav>
 	<h1>Search By Hospital Name</h1>
@@ -37,12 +37,12 @@
 		<thead class="thead-dark">
 		
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Location</th>
-				<th>Fees</th>
-				<th>Specialist</th>
-				<th>Clean</th>
+				<th scope="col" >Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Location</th>
+				<th scope="col">Fees</th>
+				<th scope="col" >Specialist</th>
+				<th scope="col">Clean</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -54,7 +54,8 @@
 				<td>${h.fees}</td>
 				<td>${h.specialist}</td>
 				<td>${h.clean}</td>
-
+                <td><a href="update?id=${h.id}">Edit</a></td>
+                <td><a href="delete?id=${h.id}">Delete</a></td>
 			</tr>
 			</c:forEach>
 			</tbody>

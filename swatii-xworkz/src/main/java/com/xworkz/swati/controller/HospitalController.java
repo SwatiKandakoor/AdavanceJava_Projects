@@ -38,8 +38,9 @@ public class HospitalController {
 	}
 
 	@PostMapping("/hosp")
+	public String postRegister(Model model, HospitalDto
 
-	public String postRegister(Model model, HospitalDto dto) {
+	dto) {
 		System.out.println("running post ");
 		Set<ConstraintViolation<HospitalDto>> violation = this.hospitalService.validateAndSave(dto);
 		if (violation.isEmpty()) {
@@ -77,4 +78,35 @@ public class HospitalController {
 		return "SearchName";
 
 	}
+
+	@GetMapping("/update")
+	public String onUpdate(@RequestParam int id, Model model) {
+		System.out.println("running onupdate.." + id);
+		HospitalDto dto = this.hospitalService.findByid(id);
+		model.addAttribute("dto", dto);
+		model.addAttribute("specialist", specialists);
+		return "UpdateHospital";
+
+	}
+
+	@PostMapping("/update")
+	public String onUpdate(HospitalDto dto, Model model) {
+		System.out.println("running onupdate " + dto);
+		Set<ConstraintViolation<HospitalDto>> constraintViolations = this.hospitalService.validateAndUpdate(dto);
+		if (constraintViolations.size() > 0) {
+			model.addAttribute("error", constraintViolations);
+
+		} else {
+			model.addAttribute("message", "Hospital update success...");
+		}
+		return "UpdateHospital";
+	}
+
+	@GetMapping("/delete")
+	public String onDelete(Model model, @RequestParam int id) {
+		boolean dto = this.hospitalService.deleteById(id);
+		model.addAttribute("message", "delete was successful");
+		return "Delete";
+	}
+
 }

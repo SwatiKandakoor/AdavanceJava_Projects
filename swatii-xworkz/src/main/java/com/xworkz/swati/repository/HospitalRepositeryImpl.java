@@ -1,6 +1,5 @@
 package com.xworkz.swati.repository;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -28,6 +27,10 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
 		manager.persist(entity);
+		
+		
+		
+		
 		transaction.commit();
 		manager.close();
 		return true;
@@ -50,7 +53,7 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 			query.setParameter("hospName", name);
 			List<HospitalEntity> list = query.getResultList();
 			System.out.println("Total List found in repo.." + list.size());
-			for(int i=0;i<list.size();i++) {
+			for (int i = 0; i < list.size(); i++) {
 				System.out.println(list.get(i));
 			}
 			return list;
@@ -59,6 +62,38 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 			manager.close();
 		}
 
+	}
+
+	@Override
+	public boolean update(HospitalEntity entity) {
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		// Decide
+		try {
+			EntityTransaction transaction = manager.getTransaction();
+			transaction.begin();
+			manager.merge(entity);
+			transaction.commit();
+			return true;
+		} finally {
+			manager.close();
+		}
+	}
+
+	@Override
+	public boolean deleteById(int id) {
+		System.out.println("running deleteby id in repo...");
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		HospitalEntity entity = manager.find(HospitalEntity.class, id);
+		try {
+			EntityTransaction transaction = manager.getTransaction();
+			transaction.begin();
+			manager.remove(entity);
+			transaction.commit();
+			return true;
+
+		} finally {
+			manager.close();
+		}
 	}
 
 }

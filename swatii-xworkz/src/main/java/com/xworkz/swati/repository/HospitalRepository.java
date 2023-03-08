@@ -9,6 +9,10 @@ public interface HospitalRepository {
 
 	boolean save(HospitalEntity entity);
 
+	boolean update(HospitalEntity entity);
+
+	boolean deleteById(int id);
+	
 	default HospitalEntity findByid(int id) {
 		return null;
 	}

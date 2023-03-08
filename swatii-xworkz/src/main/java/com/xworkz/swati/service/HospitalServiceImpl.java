@@ -62,6 +62,7 @@ public class HospitalServiceImpl implements HospitalService {
 				dto.setSpecialist(entity.getSpecialist());
 				dto.setClean(entity.getClean());
 				dto.setFees(entity.getFees());
+				dto.setId(entity.getId());
 				return dto;
 			}
 		}
@@ -73,7 +74,7 @@ public class HospitalServiceImpl implements HospitalService {
 	public List<HospitalDto> findByName(String name) {
 		System.out.println("running findByName is service.." + name);
 		if (name != null && !name.isEmpty()) {
-			System.out.println("Name is Valid... calling repo...");
+  			System.out.println("Name is Valid... calling repo...");
 			List<HospitalEntity> entities = this.repositery.findByName(name);
 			List<HospitalDto> listOfDto = new ArrayList<HospitalDto>();
 			for (HospitalEntity entity : entities) {
@@ -95,5 +96,35 @@ public class HospitalServiceImpl implements HospitalService {
 		}
 		return HospitalService.super.findByName(name);
 
+	}
+
+	@Override
+	public Set<ConstraintViolation<HospitalDto>> validateAndUpdate(HospitalDto dto) {
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		Validator validator = validatorFactory.getValidator();
+		Set<ConstraintViolation<HospitalDto>> constraintViolations = validator.validate(dto);
+		if (constraintViolations != null && !constraintViolations.isEmpty()) {
+			System.err.println("constraintViolations exists,return constraints");
+			return constraintViolations;
+		} else {
+			System.out.println("constraintViolations does not exist,data is good");
+			HospitalEntity entity = new HospitalEntity();
+			entity.setName(dto.getName());
+			entity.setLocation(dto.getLocation());
+			entity.setSpecialist(dto.getSpecialist());
+			entity.setClean(dto.getClean());
+			entity.setFees(dto.getFees());
+			entity.setId(dto.getId());
+			System.out.println("entity:" + entity);
+			boolean update = this.repositery.update(entity);
+			System.out.println("Entity data is update :" + update);
+			return Collections.emptySet();
+		}
+	}
+
+	@Override
+	public boolean deleteById(int id) {
+		boolean deleted = this.repositery.deleteById(id);
+		return true;
 	}
 }

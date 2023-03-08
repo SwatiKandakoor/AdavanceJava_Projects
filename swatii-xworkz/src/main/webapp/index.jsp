@@ -20,14 +20,14 @@
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				src="https://seeklogo.com/images/M/medical-hospital-logo-463FA27180-seeklogo.com.png"
 				alt="" width="150" height="55" class="d-inline-block align text-top">
-			</a> <a href="hosp">register</a>
-			<a href="search.jsp">search</a>
+			</a> <a href="hosp">Register</a>
+			<a href="search.jsp">Search</a>
 			<a href="SearchName.jsp">Search By Name</a>
 			
 		</div>
 	</nav>
-
+<h1>Welcome to Hospital Application</h1>
 </body>
 </html>

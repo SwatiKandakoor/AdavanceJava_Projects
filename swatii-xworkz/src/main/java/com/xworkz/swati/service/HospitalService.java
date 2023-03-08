@@ -11,9 +11,15 @@ import com.xworkz.swati.dto.HospitalDto;
 public interface HospitalService {
 	Set<ConstraintViolation<HospitalDto>> validateAndSave(HospitalDto dto);
 
+	Set<ConstraintViolation<HospitalDto>> validateAndUpdate(HospitalDto dto);
+	
+	boolean deleteById(int id);
+
 	default HospitalDto findByid(int id) {
 		return null;
 	}
+
+	
 
 	default List<HospitalDto> findByName(String name) {
 		return Collections.emptyList();

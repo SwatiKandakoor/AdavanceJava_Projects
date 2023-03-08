@@ -20,35 +20,40 @@
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				src="https://seeklogo.com/images/M/medical-hospital-logo-463FA27180-seeklogo.com.png"
 				alt="" width="80" height="48" class="d-inline-block align text-top">
-			</a> <a href="index.jsp">Home</a> <a href="search.jsp">Search</a>
+			</a> <a href="index.jsp">Home</a> <a href="search.jsp">search</a>
 		</div>
 	</nav>
+	<h1>Welcome to Hospital Update</h1>
 	<h5 style="color: green;">${message}</h5>
 	<h5 style="color: red;">
 		${message} <br>
 		<c:forEach items="${errors}" var="e">
-	 ${e.message} <br>
-		</c:forEach>
+	 ${e.message}
+	</c:forEach>
 	</h5>
-	<h3>Register the Hospital Application</h3>
-	<form action="hosp" method="post">
-		<div class="form-group">
+	<form action="update" method="post">
+	<div class="form-group">
 			<label for="exampleInputPassword1">Hospital Name</label> <input
 				type="text" class="form-control" id="exampleInputPassword1"
-				name="name" />
+				name="id"  value="${dto.id}"  readonly/>
+		</div>
+	<div class="form-group">
+			<label for="exampleInputPassword1">Hospital Name</label> <input
+				type="text" class="form-control" id="exampleInputPassword1"
+				name="name"  value="${dto.name}"  readonly/>
 		</div>
 		<br> <label for="exampleInputPassword1">Location</label> <input
 			type="text" class="form-control" id="exampleInputPassword1"
-			name="location" />
+			name="location"  value="${dto.location}" />
 		</div>
 		<br> <label for="exampleInputPassword1">Fees</label> <input
 			type="text" class="form-control" id="exampleInputPassword1"
-			name="fees" />
+			name="fees" value="${dto.fees}"/>
 		</div>
 		<br> Specialist<select class="custom-select" name="specialist">
-			<option value="s">SELECT</option>
+			<option value="${dto.specialist}">${dto.specialist}</option>
 			<c:forEach items="${specialist}" var="p">
 				<option value="${p}">${p}</option>
 			</c:forEach>
@@ -56,17 +61,17 @@
 
 		<div class="form-check">
 			Clean<br> <input class="form-check-input" type="radio"
-				name="clean" id="exampleRadios1" value="true" checked>Yes <label
+				name="clean" id="exampleRadios1" value="${dto.clean}"  value="true" checked>Yes <label
 				class="form-check-label" for="exampleRadios1"> </label>
 		</div>
 		<br>
 		<div class="form-check">
 			<input class="form-check-input" type="radio" name="clean"
-				id="exampleRadios1" value="false" checked>No <label
+				id="exampleRadios1"  value="${dto.clean}"  value="false" checked>No <label
 				class="form-check-label" for="exampleRadios1"> </label>
 		</div>
-		<button type="submit" class="btn btn-primary">Save</button>
+		<button type="submit" class="btn btn-primary">update</button>
 
 	</form>
-</body>
+	   </body>
 </html>

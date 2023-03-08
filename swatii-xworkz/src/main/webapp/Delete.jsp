@@ -20,22 +20,15 @@
 	<nav class="navbar navbar-expand-lg-navbar-Light bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://seeklogo.com/images/M/medical-hospital-logo-463FA27180-seeklogo.com.png"
-				" width="80" height="48" class="d-inline-block align text-top">
-			</a> <a href="hosp">Register</a> <a href="index.jsp">Home</a>
+				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				alt="" width="150" height="55" class="d-inline-block align text-top">
+			<a href="index.jsp">Home </a>
+			
 		</div>
 	</nav>
-	<h3>Search by id</h3>
-	<h4 style="color: red">${mesage}</h4>
-	<form action="Search">
-		<input type="search" name="id"> <input type="submit"
-			value="search">
-	</form>
-	<h5 style="color: green;">
-		Name:${dto.name}<br> Location:${dto.location}<br>
-		Fees:${dto.fees}<br> Specialist:${dto.specialist}<br>
-		Clean:${dto.clean}<br>
-	</h5>
 
+<form action="delete" method="post">
+<h2> Delete record successfuly</h2>
+</form>
 </body>
 </html>
