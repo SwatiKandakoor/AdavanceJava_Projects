@@ -32,7 +32,7 @@
 		<input type="search" name="id"> <input type="submit"
 			value="search">
 	</form>
-	<h5 style="color: green;">
+	<h5 style="color: blue;">
 		Name:${dto.name}<br> Location:${dto.location}<br>
 		Fees:${dto.fees}<br> Specialist:${dto.specialist}<br>
 		Clean:${dto.clean}<br>

@@ -28,37 +28,39 @@
 	<h1>Search By Hospital Name</h1>
 	<h4 style="color: red">${mesage}</h4>
 	<form action="searchByTwoProp" method="get">
-		Search by Two Properties <input type="text" class="search" placeholder="Name" name="name">
-      <input type="Number" name="fees" class="search" placeholder="Fees"/ > 
-      <input type="submit" value="search">
-        	
+		Search by Two Properties <input type="text" class="search"
+			placeholder="Name" name="name"> <input type="Number"
+			name="fees" class="search" placeholder="Fees"/ > <input
+			type="submit" value="search">
+
 	</form>
 	<div>
-	
-		<table  class="table">
-		<thead class="thead-dark">
-		
-			<tr>
-				<th scope="col" >Id</th>
-				<th scope="col">Name</th>
-				<th scope="col">Location</th>
-				<th scope="col">Fees</th>
-				<th scope="col" >Specialist</th>
-				<th scope="col">Clean</th>
-			</tr>
+
+		<table class="table table-bordered">
+			<thead class="thead-dark">
+
+				<tr class="table-dark">
+					<br>
+					<th scope="col">Id</th>
+					<th scope="col">Name</th>
+					<th scope="col">Location</th>
+					<th scope="col">Fees</th>
+					<th scope="col">Specialist</th>
+					<th scope="col">Clean</th>
+				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${list}" var="h">
-			<tr>
-				<td>${h.id}</td>
-				<td>${h.name}</td>
-				<td>${h.location}</td>
-				<td>${h.fees}</td>
-				<td>${h.specialist}</td>
-				<td>${h.clean}</td>
-                
-			</tr>
-			</c:forEach>
+				<c:forEach items="${list}" var="h">
+					<tr>
+						<td>${h.id}</td>
+						<td>${h.name}</td>
+						<td>${h.location}</td>
+						<td>${h.fees}</td>
+						<td>${h.specialist}</td>
+						<td>${h.clean}</td>
+
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

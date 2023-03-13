@@ -31,10 +31,11 @@
 	
 	<div>
 	
-		<table  class="table">
-		<thead class="thead-dark">
+		<table class="table table-bordered">
+		<thead class="thead-dark  ">
 		
-			<tr>
+                <tr class="table-dark">
+                <br>
 				<th scope="col" >Id</th>
 				<th scope="col">Name</th>
 				<th scope="col">Location</th>

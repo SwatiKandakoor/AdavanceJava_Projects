@@ -30,6 +30,13 @@
 			
 		</div>
 	</nav>
-<h1>Welcome to Hospital Application</h1>
+	
+	<h1>Welcome to Hospital Application</h1>
+	<div class="text-center">
+  <img src="https://cdn.vectorstock.com/i/1000x1000/68/73/hospital-building-with-town-background-vector-31176873.webp" class="rounded" alt="">
+
+</div>
+	
+
 </body>
 </html>

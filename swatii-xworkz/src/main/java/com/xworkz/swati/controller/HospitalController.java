@@ -108,7 +108,8 @@ public class HospitalController {
 	}
 
 
-	@GetMapping("/searchByTwoProp")	public String onSearchByTwoProp(@RequestParam(value="name",required=false) String name,
+	@GetMapping("/searchByTwoProp")	
+	public String onSearchByTwoProp(@RequestParam(value="name",required=false) String name,
 			@RequestParam(value="fees",required=false) int fees, Model model) { 
 
 		System.out.println("running onSearchName controller " + name);

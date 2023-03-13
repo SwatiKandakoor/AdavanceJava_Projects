@@ -26,8 +26,7 @@
 		</div>
 	</nav>
 	<h1>Welcome to Hospital Update</h1>
-	<h5 style="color: green;">${message}</h5>
-	<h5 style="color: red;">
+	<h5 style="color: green;">
 		${message} <br>
 		<c:forEach items="${errors}" var="e">
 	 ${e.message}

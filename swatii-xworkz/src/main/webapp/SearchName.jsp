@@ -32,32 +32,36 @@
 			value="search">
 	</form>
 	<div>
-	
-		<table  class="table">
-		<thead class="thead-dark">
-		
-			<tr>
-				<th scope="col" >Id</th>
-				<th scope="col">Name</th>
-				<th scope="col">Location</th>
-				<th scope="col">Fees</th>
-				<th scope="col" >Specialist</th>
-				<th scope="col">Clean</th>
-			</tr>
+
+		<table class="table table-bordered">
+			<thead class="thead-dark">
+
+				<tr class="table-dark">
+					<br>
+					<th scope="col">Id</th>
+					<th scope="col">Name</th>
+					<th scope="col">Location</th>
+					<th scope="col">Fees</th>
+					<th scope="col">Specialist</th>
+					<th scope="col">Clean</th>
+					<th scope="col">Update</th>
+					<th scope="col">Delete</th>
+					
+				</tr>
 			</thead>
 			<tbody>
-			<c:forEach items="${list}" var="h">
-			<tr>
-				<td>${h.id}</td>
-				<td>${h.name}</td>
-				<td>${h.location}</td>
-				<td>${h.fees}</td>
-				<td>${h.specialist}</td>
-				<td>${h.clean}</td>
-                <td><a href="update?id=${h.id}">Edit</a></td>
-                <td><a href="delete?id=${h.id}">Delete</a></td>
-			</tr>
-			</c:forEach>
+				<c:forEach items="${list}" var="h">
+					<tr>
+						<td>${h.id}</td>
+						<td>${h.name}</td>
+						<td>${h.location}</td>
+						<td>${h.fees}</td>
+						<td>${h.specialist}</td>
+						<td>${h.clean}</td>
+						<td><a href="update?id=${h.id}">Edit</a></td>
+						<td><a href="delete?id=${h.id}">Delete</a></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>
