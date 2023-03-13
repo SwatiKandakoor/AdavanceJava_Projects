@@ -27,10 +27,6 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 		EntityTransaction transaction = manager.getTransaction();
 		transaction.begin();
 		manager.persist(entity);
-		
-		
-		
-		
 		transaction.commit();
 		manager.close();
 		return true;
@@ -53,9 +49,9 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 			query.setParameter("hospName", name);
 			List<HospitalEntity> list = query.getResultList();
 			System.out.println("Total List found in repo.." + list.size());
-			for (int i = 0; i < list.size(); i++) {
-				System.out.println(list.get(i));
-			}
+//			for (int i = 0; i < list.size(); i++) {
+//				System.out.println(list.get(i));
+
 			return list;
 
 		} finally {
@@ -94,6 +90,39 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 		} finally {
 			manager.close();
 		}
+	}
+
+	@Override
+	public List<HospitalEntity> findAll() {
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findAll");
+			List<HospitalEntity> list = query.getResultList();
+			System.out.println("Total List found in repo.." + list.size());
+
+			return list;
+
+		} finally {
+			manager.close();
+
+		}
+	}
+
+	@Override
+	public List<HospitalEntity> findByTwoProp(String name, int fees) {
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("findByTwoProp");
+			query.setParameter("hospName", name);
+			query.setParameter("hospFees", fees);
+			List<HospitalEntity> list = query.getResultList();
+			System.out.println("Total List found in repo.." + list.size());
+			return list;
+
+		} finally {
+			manager.close();
+		}
+
 	}
 
 }

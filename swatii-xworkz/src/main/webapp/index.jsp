@@ -25,6 +25,8 @@
 			</a> <a href="hosp">Register</a>
 			<a href="search.jsp">Search</a>
 			<a href="SearchName.jsp">Search By Name</a>
+			<a href="SearchByTwoProp.jsp">SearchByTwoProp</a>
+			<a href="FindAll.jsp">FindAll</a>
 			
 		</div>
 	</nav>

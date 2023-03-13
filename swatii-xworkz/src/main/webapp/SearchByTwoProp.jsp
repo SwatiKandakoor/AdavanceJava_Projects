@@ -25,18 +25,44 @@
 			</a> <a href="hosp">Register</a> <a href="index.jsp">Home</a>
 		</div>
 	</nav>
-	<h3>Search by id</h3>
+	<h1>Search By Hospital Name</h1>
 	<h4 style="color: red">${mesage}</h4>
-	
-	<form action="Search">
-		<input type="search" name="id"> <input type="submit"
-			value="search">
+	<form action="searchByTwoProp" method="get">
+		Search by Two Properties <input type="text" class="search" placeholder="Name" name="name">
+      <input type="Number" name="fees" class="search" placeholder="Fees"/ > 
+      <input type="submit" value="search">
+        	
 	</form>
-	<h5 style="color: green;">
-		Name:${dto.name}<br> Location:${dto.location}<br>
-		Fees:${dto.fees}<br> Specialist:${dto.specialist}<br>
-		Clean:${dto.clean}<br>
-	</h5>
+	<div>
+	
+		<table  class="table">
+		<thead class="thead-dark">
+		
+			<tr>
+				<th scope="col" >Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Location</th>
+				<th scope="col">Fees</th>
+				<th scope="col" >Specialist</th>
+				<th scope="col">Clean</th>
+			</tr>
+			</thead>
+			<tbody>
+			<c:forEach items="${list}" var="h">
+			<tr>
+				<td>${h.id}</td>
+				<td>${h.name}</td>
+				<td>${h.location}</td>
+				<td>${h.fees}</td>
+				<td>${h.specialist}</td>
+				<td>${h.clean}</td>
+                
+			</tr>
+			</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
 
 </body>
 </html>

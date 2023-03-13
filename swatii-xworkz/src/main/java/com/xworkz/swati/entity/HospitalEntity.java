@@ -12,6 +12,8 @@ import lombok.Data;
 @Data
 @Table(name = "hospital_table")
 @NamedQuery(name="findByName",query = "Select entity from HospitalEntity entity where entity.name=:hospName")
+@NamedQuery(name="findAll",query = "Select entity from HospitalEntity entity")
+@NamedQuery(name="findByTwoProp",query = "Select entity From HospitalEntity entity where entity.name=:hospName OR entity.fees=:hospFees")
 public class HospitalEntity {
 	@Id
 	@Column(name = "h_id")

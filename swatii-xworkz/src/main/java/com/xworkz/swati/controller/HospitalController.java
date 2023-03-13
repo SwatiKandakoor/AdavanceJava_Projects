@@ -38,9 +38,7 @@ public class HospitalController {
 	}
 
 	@PostMapping("/hosp")
-	public String postRegister(Model model, HospitalDto
-
-	dto) {
+	public String postRegister(Model model, HospitalDto dto) {
 		System.out.println("running post ");
 		Set<ConstraintViolation<HospitalDto>> violation = this.hospitalService.validateAndSave(dto);
 		if (violation.isEmpty()) {
@@ -109,4 +107,26 @@ public class HospitalController {
 		return "Delete";
 	}
 
+
+	@GetMapping("/searchByTwoProp")	public String onSearchByTwoProp(@RequestParam(value="name",required=false) String name,
+			@RequestParam(value="fees",required=false) int fees, Model model) { 
+
+		System.out.println("running onSearchName controller " + name);
+		List<HospitalDto> list = this.hospitalService.findByTwoProp(name, fees);
+		model.addAttribute("list", list);
+
+		return "SearchByTwoProp";
+
+	}
+	@GetMapping("/findAll")
+	public String getSearch(Model model) {
+
+		List<HospitalDto> dto= this.hospitalService.findAll();
+		if (dto != null) {
+			model.addAttribute("dto", dto);
+		} else {
+			model.addAttribute("mesage", "Do not found ");
+		}
+		return "FindAll";
+	}
 }

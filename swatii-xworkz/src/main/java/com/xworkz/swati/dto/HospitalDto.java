@@ -8,6 +8,8 @@ import lombok.Data;
 
 @Data
 public class HospitalDto {
+	 // Declare the number of variable
+    // you want to capture the value
 	@NotNull
 	@Size(min = 3, max = 20, message = "name should be greater than 3 less than 20")
 	private String name;

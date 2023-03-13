@@ -12,7 +12,7 @@ public interface HospitalService {
 	Set<ConstraintViolation<HospitalDto>> validateAndSave(HospitalDto dto);
 
 	Set<ConstraintViolation<HospitalDto>> validateAndUpdate(HospitalDto dto);
-	
+		
 	boolean deleteById(int id);
 
 	default HospitalDto findByid(int id) {
@@ -24,5 +24,13 @@ public interface HospitalService {
 	default List<HospitalDto> findByName(String name) {
 		return Collections.emptyList();
 	}
+	default List<HospitalDto> findByTwoProp(String name,int fees) {
+		return Collections.emptyList();
+	}
+	
+	default List<HospitalDto> findAll(){
+		return Collections.emptyList();
+	}
+
 
 }

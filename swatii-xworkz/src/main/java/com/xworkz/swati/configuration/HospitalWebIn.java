@@ -1,6 +1,7 @@
 package com.xworkz.swati.configuration;
 
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web
+.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -15,13 +16,13 @@ public class HospitalWebIn extends AbstractAnnotationConfigDispatcherServletInit
 		System.out.println("Running in getRootConfigClasses");
 		return null;
 	}
-
+	// Registering the Spring config file
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		System.out.println("Running in getServletConfigClasses");
 		return new Class[] { HospitalConfiguration.class };
 	}
-
+      // Add mapping url
 	@Override
 	protected String[] getServletMappings() {
 		System.out.println("Running in getServletMappings");

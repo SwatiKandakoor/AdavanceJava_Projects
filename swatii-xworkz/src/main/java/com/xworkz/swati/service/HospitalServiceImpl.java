@@ -74,7 +74,7 @@ public class HospitalServiceImpl implements HospitalService {
 	public List<HospitalDto> findByName(String name) {
 		System.out.println("running findByName is service.." + name);
 		if (name != null && !name.isEmpty()) {
-  			System.out.println("Name is Valid... calling repo...");
+			System.out.println("Name is Valid... calling repo...");
 			List<HospitalEntity> entities = this.repositery.findByName(name);
 			List<HospitalDto> listOfDto = new ArrayList<HospitalDto>();
 			for (HospitalEntity entity : entities) {
@@ -127,4 +127,46 @@ public class HospitalServiceImpl implements HospitalService {
 		boolean deleted = this.repositery.deleteById(id);
 		return true;
 	}
+
+	@Override
+	public List<HospitalDto> findByTwoProp(String name, int fees) {
+			List<HospitalEntity> entities = this.repositery.findByTwoProp(name, fees);
+			List<HospitalDto> listOfDto = new ArrayList<HospitalDto>();
+			for (HospitalEntity entity : entities) {
+				HospitalDto dto = new HospitalDto();
+				dto.setId(entity.getId());
+				dto.setName(entity.getName());
+				dto.setClean(entity.getClean());
+				dto.setFees(entity.getFees());
+				dto.setLocation(entity.getLocation());
+				dto.setSpecialist(entity.getSpecialist());
+				listOfDto.add(dto);
+
+			}
+			System.out.println("size of dtos" + listOfDto.size());
+			System.out.println("size of entities" + entities.size());
+			return listOfDto;
+			}
+		
+
+	@Override
+	public List<HospitalDto> findAll() {
+		List<HospitalEntity> entities = this.repositery.findAll();
+		List<HospitalDto> listOfDto = new ArrayList<HospitalDto>();
+		for (HospitalEntity entity : entities) {
+			HospitalDto dto = new HospitalDto();
+			dto.setId(entity.getId());
+			dto.setName(entity.getName());
+			dto.setClean(entity.getClean());
+			dto.setFees(entity.getFees());
+			dto.setLocation(entity.getLocation());
+			dto.setSpecialist(entity.getSpecialist());
+			listOfDto.add(dto);
+
+		}
+		System.out.println("size of dtos" + listOfDto.size());
+		System.out.println("size of entities" + entities.size());
+		return listOfDto;
+	}
+
 }
