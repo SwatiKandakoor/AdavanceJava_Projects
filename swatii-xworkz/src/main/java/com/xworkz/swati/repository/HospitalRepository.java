@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.xworkz.swati.entity.HospitalEntity;
 
+import lombok.extern.slf4j.Slf4j;
+
 public interface HospitalRepository {
 
 	boolean save(HospitalEntity entity);

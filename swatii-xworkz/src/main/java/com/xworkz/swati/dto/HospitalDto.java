@@ -5,8 +5,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Data
+@Slf4j
 public class HospitalDto {
 	 // Declare the number of variable
     // you want to capture the value

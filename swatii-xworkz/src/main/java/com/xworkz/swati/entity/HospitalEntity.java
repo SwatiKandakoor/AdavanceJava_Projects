@@ -7,9 +7,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Data
+@Slf4j
 @Table(name = "hospital_table")
 @NamedQuery(name="findByName",query = "Select entity from HospitalEntity entity where entity.name=:hospName")
 @NamedQuery(name="findAll",query = "Select entity from HospitalEntity entity")

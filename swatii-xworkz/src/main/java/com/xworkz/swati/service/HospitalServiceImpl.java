@@ -17,13 +17,16 @@ import com.xworkz.swati.dto.HospitalDto;
 import com.xworkz.swati.entity.HospitalEntity;
 import com.xworkz.swati.repository.HospitalRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class HospitalServiceImpl implements HospitalService {
 	@Autowired
 	private HospitalRepository repositery;
 
 	public HospitalServiceImpl() {
-		System.out.println("created " + this.getClass().getSimpleName());
+		log.info("created " + this.getClass().getSimpleName());
 	}
 
 	@Override
@@ -35,7 +38,7 @@ public class HospitalServiceImpl implements HospitalService {
 			System.err.println("constraintViolations exists,return constraints");
 			return constraintViolations;
 		} else {
-			System.out.println("constraintViolations does not exist,data is good");
+			log.info("constraintViolations does not exist,data is good");
 			HospitalEntity entity = new HospitalEntity();
 			entity.setName(dto.getName());
 			entity.setLocation(dto.getLocation());
@@ -43,9 +46,9 @@ public class HospitalServiceImpl implements HospitalService {
 			entity.setClean(dto.getClean());
 			entity.setFees(dto.getFees());
 			boolean saved = this.repositery.save(entity);
-			System.out.println(saved);
-			System.out.println("Dto" + dto);
-			System.out.println("ENTITY" + entity);
+			log.info(saved);
+			log.info("Dto" + dto);
+			log.info("ENTITY" + entity);
 			return Collections.emptySet();
 		}
 
@@ -72,9 +75,9 @@ public class HospitalServiceImpl implements HospitalService {
 
 	@Override
 	public List<HospitalDto> findByName(String name) {
-		System.out.println("running findByName is service.." + name);
+		log.info("running findByName is service.." + name);
 		if (name != null && !name.isEmpty()) {
-			System.out.println("Name is Valid... calling repo...");
+			log.info("Name is Valid... calling repo...");
 			List<HospitalEntity> entities = this.repositery.findByName(name);
 			List<HospitalDto> listOfDto = new ArrayList<HospitalDto>();
 			for (HospitalEntity entity : entities) {
@@ -88,8 +91,8 @@ public class HospitalServiceImpl implements HospitalService {
 				listOfDto.add(dto);
 
 			}
-			System.out.println("size of dtos" + listOfDto.size());
-			System.out.println("size of entities" + entities.size());
+			log.info("size of dtos" + listOfDto.size());
+			log.info("size of entities" + entities.size());
 			return listOfDto;
 		} else {
 			System.err.println("Name is Invalid");
@@ -107,7 +110,7 @@ public class HospitalServiceImpl implements HospitalService {
 			System.err.println("constraintViolations exists,return constraints");
 			return constraintViolations;
 		} else {
-			System.out.println("constraintViolations does not exist,data is good");
+			log.info("constraintViolations does not exist,data is good");
 			HospitalEntity entity = new HospitalEntity();
 			entity.setName(dto.getName());
 			entity.setLocation(dto.getLocation());
@@ -115,9 +118,9 @@ public class HospitalServiceImpl implements HospitalService {
 			entity.setClean(dto.getClean());
 			entity.setFees(dto.getFees());
 			entity.setId(dto.getId());
-			System.out.println("entity:" + entity);
+			log.info("entity:" + entity);
 			boolean update = this.repositery.update(entity);
-			System.out.println("Entity data is update :" + update);
+			log.info("Entity data is update :" + update);
 			return Collections.emptySet();
 		}
 	}
@@ -143,8 +146,8 @@ public class HospitalServiceImpl implements HospitalService {
 				listOfDto.add(dto);
 
 			}
-			System.out.println("size of dtos" + listOfDto.size());
-			System.out.println("size of entities" + entities.size());
+			log.info("size of dtos" + listOfDto.size());
+			log.info("size of entities" + entities.size());
 			return listOfDto;
 			}
 		
@@ -164,8 +167,8 @@ public class HospitalServiceImpl implements HospitalService {
 			listOfDto.add(dto);
 
 		}
-		System.out.println("size of dtos" + listOfDto.size());
-		System.out.println("size of entities" + entities.size());
+		log.info("size of dtos" + listOfDto.size());
+		log.info("size of entities" + entities.size());
 		return listOfDto;
 	}
 

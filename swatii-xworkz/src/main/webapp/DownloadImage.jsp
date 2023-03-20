@@ -22,22 +22,13 @@
 			<a class="navbar-brand" href="#"> <img
 				src="https://seeklogo.com/images/M/medical-hospital-logo-463FA27180-seeklogo.com.png"
 				alt="" width="150" height="55" class="d-inline-block align text-top">
-			</a> <a href="hosp">Register</a>
-			<a href="search.jsp">Search</a>
-			<a href="SearchName.jsp">Search By Name</a>
-			<a href="SearchByTwoProp.jsp">SearchByTwoProp</a>
-			<a href="FindAll.jsp">FindAll</a>
-			<a href="ImageUpload.jsp">Image Upload</a>
-			<a href="DownloadImage.jsp">DownloadImage</a>
+			</a> <a href="index.jsp">Home</a>
 			
 		</div>
 	</nav>
 	
-	<h1>Welcome to Hospital Application</h1>
-	<div class="text-center">
-  <img src="https://cdn.vectorstock.com/i/1000x1000/68/73/hospital-building-with-town-background-vector-31176873.webp" class="rounded" alt="">
-
-</div>
+	<h1>Display Image Test</h1>
+	<img src="download?fileName=udapi temple.jpg" height="80" width="100"/>
 	
 
 </body>

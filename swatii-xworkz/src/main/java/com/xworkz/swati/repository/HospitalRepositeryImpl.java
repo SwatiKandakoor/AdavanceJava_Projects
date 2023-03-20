@@ -12,13 +12,16 @@ import org.springframework.stereotype.Repository;
 
 import com.xworkz.swati.entity.HospitalEntity;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Repository
+@Slf4j
 public class HospitalRepositeryImpl implements HospitalRepository {
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
 
 	public HospitalRepositeryImpl() {
-		System.out.println("Created " + this.getClass().getSimpleName());
+		log.info("Created " + this.getClass().getSimpleName());
 	}
 
 	@Override
@@ -34,7 +37,7 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 
 	@Override
 	public HospitalEntity findByid(int id) {
-		System.out.println("find by id in repo.." + id);
+		log.info("find by id in repo.." + id);
 		EntityManager entitymanager = this.entityManagerFactory.createEntityManager();
 		HospitalEntity fromDb = entitymanager.find(HospitalEntity.class, id);
 		entitymanager.close();
@@ -48,9 +51,9 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 			Query query = manager.createNamedQuery("findByName");
 			query.setParameter("hospName", name);
 			List<HospitalEntity> list = query.getResultList();
-			System.out.println("Total List found in repo.." + list.size());
+			log.info("Total List found in repo.." + list.size());
 //			for (int i = 0; i < list.size(); i++) {
-//				System.out.println(list.get(i));
+//				log.info(list.get(i));
 
 			return list;
 
@@ -77,7 +80,7 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 
 	@Override
 	public boolean deleteById(int id) {
-		System.out.println("running deleteby id in repo...");
+		log.info("running deleteby id in repo...");
 		EntityManager manager = this.entityManagerFactory.createEntityManager();
 		HospitalEntity entity = manager.find(HospitalEntity.class, id);
 		try {
@@ -98,7 +101,7 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 		try {
 			Query query = manager.createNamedQuery("findAll");
 			List<HospitalEntity> list = query.getResultList();
-			System.out.println("Total List found in repo.." + list.size());
+			log.info("Total List found in repo.." + list.size());
 
 			return list;
 
@@ -116,7 +119,7 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 			query.setParameter("hospName", name);
 			query.setParameter("hospFees", fees);
 			List<HospitalEntity> list = query.getResultList();
-			System.out.println("Total List found in repo.." + list.size());
+			log.info("Total List found in repo.." + list.size());
 			return list;
 
 		} finally {
