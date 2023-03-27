@@ -28,31 +28,33 @@
 	</nav>
 	Hospital Id:
 	<input type="text" id="id" />
-	<button onclick="loadDto">Click</button>
-	<span id="id"></span>
-	<span id="name"></span>
-	<div id="displayDto"></div>
+	<button onclick="loadDto()">Click</button>
+	<span id="id2"></span>
+	<span id="name2"></span>
+	<span id="displayDto2">t</span>
+	
 	<script>
+	
 	function loadDto(){
 		console.log('running loadDto');
 		var xhttp=new XMLHttpRequest();
 		
 		
 		var id=document.getElementById("id").value;
-		xhttp.open("GET", "http://localhost:8080/swatii_xworkz/dto/"+id,true);
+		xhttp.open("GET", "http://localhost:8080/swatii-xworkz/dto/"+id,true);
 		xhttp.send();
 		
 		xhttp.onload=function(){
 			console.log(this);
-			document.getElementById("displayDto").innerHtml=this.responseText;
+			document.getElementById("displayDto2").innerHTML='test';
 			var json=JSON.parse(this.responseText);
-			document.getElementById("id").innerHtml=json.id;
-			document.getElementById("name").innerHtml=json.name;
+			console.log(json);
+			document.getElementById("id2").innerHTML=json.id;
+			document.getElementById("name2").innerHTML=json.name;
 
 		}
-	
+	}
 	</script>
-
 
 </body>
 </html>
