@@ -13,7 +13,10 @@
 		<jstl.version>1.2</jstl.version>
 		<hibernate.version>5.6.15.Final</hibernate.version>
 		<mysql.version>8.0.32</mysql.version>
-		<slf4j.version>1.7.25</slf4j.version>
+		<servlet.version>2.5</servlet.version>
+		<jcl.slf4j.version>1.7.12</jcl.slf4j.version>
+		<logback.version>1.1.3</logback.version>
+		<jackson.library>2.12.5</jackson.library>
 
 
 	</properties>
@@ -63,37 +66,45 @@
 			<artifactId>quarkus-hibernate-validator</artifactId>
 			<version>${quarkus.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- 2. Bridge logging from JCL to SLF4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${jcl.slf4j.version}</version>
+		</dependency>
+
+		<!-- 3. logback -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.2.3</version>
-			<scope>test</scope>
+			<version>${logback.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.library}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.slf4j/jul-to-slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jul-to-slf4j</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.slf4j/log4j-over-slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
 
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 			<plugin>

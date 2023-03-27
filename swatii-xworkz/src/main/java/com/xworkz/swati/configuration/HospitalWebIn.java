@@ -10,30 +10,30 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import lombok.extern.slf4j.Slf4j;
-@Slf4j
+
 public class HospitalWebIn extends AbstractAnnotationConfigDispatcherServletInitializer implements WebMvcConfigurer {
 
 	public HospitalWebIn() {
-		log.info("Created " + this.getClass().getSimpleName());
+		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		log.info("Running in getRootConfigClasses");
+		System.out.println("Running in getRootConfigClasses");
 		return null;
 	}
 
 	// Registering the Spring config file
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		log.info("Running in getServletConfigClasses");
+		System.out.println("Running in getServletConfigClasses");
 		return new Class[] { HospitalConfiguration.class };
 	}
 
 	// Add mapping url
 	@Override
 	protected String[] getServletMappings() {
-		log.info("Running in getServletMappings");
+		System.out.println("Running in getServletMappings");
 		return new String[] { "/" };
 	}
 

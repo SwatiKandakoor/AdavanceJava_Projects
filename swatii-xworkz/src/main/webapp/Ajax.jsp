@@ -22,14 +22,37 @@
 			<a class="navbar-brand" href="#"> <img
 				src="https://seeklogo.com/images/M/medical-hospital-logo-463FA27180-seeklogo.com.png"
 				alt="" width="150" height="55" class="d-inline-block align text-top">
-			</a> <a href="index.jsp">Home</a>
-			
+
+				<a href="index.jsp">Home</a>
 		</div>
 	</nav>
+	Hospital Id:
+	<input type="text" id="id" />
+	<button onclick="loadDto">Click</button>
+	<span id="id"></span>
+	<span id="name"></span>
+	<div id="displayDto"></div>
+	<script>
+	function loadDto(){
+		console.log('running loadDto');
+		var xhttp=new XMLHttpRequest();
+		
+		
+		var id=document.getElementById("id").value;
+		xhttp.open("GET", "http://localhost:8080/swatii_xworkz/dto/"+id,true);
+		xhttp.send();
+		
+		xhttp.onload=function(){
+			console.log(this);
+			document.getElementById("displayDto").innerHtml=this.responseText;
+			var json=JSON.parse(this.responseText);
+			document.getElementById("id").innerHtml=json.id;
+			document.getElementById("name").innerHtml=json.name;
+
+		}
 	
-	<h1>Display Image Test</h1>
-	<img src="download?D:\hospital-file\pictures.jpg" height="80" width="100"/>
-	
+	</script>
+
 
 </body>
 </html>

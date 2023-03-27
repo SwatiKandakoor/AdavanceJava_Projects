@@ -46,7 +46,7 @@ public class HospitalServiceImpl implements HospitalService {
 			entity.setClean(dto.getClean());
 			entity.setFees(dto.getFees());
 			boolean saved = this.repositery.save(entity);
-			log.info(saved);
+			//log.info(saved);
 			log.info("Dto" + dto);
 			log.info("ENTITY" + entity);
 			return Collections.emptySet();

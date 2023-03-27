@@ -21,7 +21,7 @@ public class HospitalRepositeryImpl implements HospitalRepository {
 	private EntityManagerFactory entityManagerFactory;
 
 	public HospitalRepositeryImpl() {
-		log.info("Created " + this.getClass().getSimpleName());
+		System.out.println("Created " + this.getClass().getSimpleName());
 	}
 
 	@Override

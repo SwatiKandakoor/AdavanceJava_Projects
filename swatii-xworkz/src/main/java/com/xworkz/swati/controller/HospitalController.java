@@ -32,8 +32,8 @@ import com.xworkz.swati.service.HospitalService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/")
 @Slf4j
+@RequestMapping("/")
 public class HospitalController {
 	@Autowired
 	private HospitalService hospitalService;
@@ -47,7 +47,7 @@ public class HospitalController {
 
 	@GetMapping("/hosp")
 	public String getRegister(Model model) {
-		log.info("running in getMapping ");
+		log.info("Hi How are you");
 		model.addAttribute("specialist", specialists);
 		return "Register";
 	}
@@ -136,7 +136,7 @@ public class HospitalController {
 
 	@GetMapping("/findAll")
 	public String getSearch(Model model) {
-
+		log.info("fetching all hospitals");
 		List<HospitalDto> dto = this.hospitalService.findAll();
 		if (dto != null) {
 			model.addAttribute("dto", dto);
@@ -151,8 +151,8 @@ public class HospitalController {
 		log.info("MultipartFile " + file);
 		log.info(file.getOriginalFilename());
 		log.info(file.getContentType());
-		log.info(file.getSize());
-		log.info(file.getBytes());
+		// log.info(file.getSize());
+		// log.info(file.getBytes());
 
 		byte[] bytes = file.getBytes();
 		Path path = Paths.get("D:\\hospital-file\\" + file.getOriginalFilename());
@@ -161,15 +161,18 @@ public class HospitalController {
 	}
 
 	@GetMapping("/download")
-	public String onDownload(HttpServletResponse response, @RequestParam(value="fileName") String fileName) throws IOException {
-		response.setContentType("image/jpg");
+	public String onDownload(HttpServletResponse response, @RequestParam String fileName)
+			throws IOException {
+		response.setContentType("image/jpeg");
 		File file = new File("D:\\hospital-file\\" + fileName);
 		// file into bytes--->response
-		InputStream in = new BufferedInputStream(new FileInputStream(file));
+		BufferedInputStream in = new BufferedInputStream(new FileInputStream(file));
 		ServletOutputStream out = response.getOutputStream();
 		IOUtils.copy(in, out);
 		response.flushBuffer();
 		return "DownloadImage";
 	}
+	
+		
 
 }
